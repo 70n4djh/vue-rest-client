@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "./node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
-    "build": "./node_modules/@vue/cli-service/bin/vue-cli-service.js build",
+    "postinstall": "if test \"$NODE_ENV\" = \"production\" ; then npm run build ; fi ",
+    "serve": "vue-cli-service.js serve",
+    "build": "vue-cli-service.js build",
     "lint": "vue-cli-service lint",
-    "start": "yarn run serve"
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "express": "^4.17.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "uuid": "^7.0.3",
