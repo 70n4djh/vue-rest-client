@@ -12,7 +12,7 @@ Vue.use(VueRouter)
 const routes = [
   { path: '/', component: AllProducts, meta: { title: 'Products Page' }, },
   { path: '/detail/:productId', component: ProductDetail, meta: { title: 'Product Detail Page' }, },
-  { path: '/new', component: CreateProduct, meta: { title: 'Create New Product Page' }, },
+  { path: '/create', component: CreateProduct, meta: { title: 'Create New Product Page' }, },
 ]
 
 const router = new VueRouter({
