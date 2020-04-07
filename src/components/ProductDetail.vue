@@ -148,7 +148,7 @@ export default {
   }),
   async mounted() {
     await axios
-      .get(`http://35.197.110.104/product/${this.$route.params.productId}`)
+      .get(`//35.197.110.104/product/${this.$route.params.productId}`)
       .then(response => {
         // console.log(response);
         this.originalProduct = response.data;
@@ -181,7 +181,7 @@ export default {
           const newValue = this.product[elem];
           axios
             .patch(
-              `http://35.197.110.104/product/${this.product.id}`,
+              `//35.197.110.104/product/${this.product.id}`,
               [{ op: "replace", path: `/${elem}`, value: newValue }],
               { headers: { "Content-Type": "application/json-patch+json" } }
             )
@@ -206,7 +206,7 @@ export default {
     async deleteProduct() {
       console.log("Deleting!");
       // redirect to home page
-      await axios.delete(`http://35.197.110.104/product/${this.product.id}`);
+      await axios.delete(`//35.197.110.104/product/${this.product.id}`);
       this.$router.push("/");
     }
   }

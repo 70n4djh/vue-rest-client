@@ -75,7 +75,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://35.197.110.104/products").then(response => {
+    axios.get("//35.197.110.104/products").then(response => {
       console.log(response);
       this.products = response.data;
     });

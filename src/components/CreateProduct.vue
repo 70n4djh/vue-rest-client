@@ -124,7 +124,7 @@ export default {
         // post form data to backend API
         this.product.id = uuidv4();
         await axios
-          .post(`http://35.197.110.104/product`, this.product)
+          .post(`//35.197.110.104/product`, this.product)
           .then(response => {
             console.log(response);
           })
