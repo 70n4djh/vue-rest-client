@@ -1,6 +1,6 @@
 <template>
   <v-container class="mb-8">
-    <v-row justify="center">
+    <v-row justify="center" v-if="valid">
       <v-col cols="12" sm="10" md="8" lg="6">
         <p class="caption">
           Click
@@ -109,6 +109,7 @@
         </v-card>
       </v-col>
     </v-row>
+    <p v-if="!valid">{{fetchErrorMessage}}</p>
   </v-container>
 </template>
 
@@ -120,6 +121,8 @@ export default {
   components: {},
 
   data: () => ({
+    valid: false,
+    fetchErrorMessage: '',
     dialog: false,
     isReadonly: {
       name: true,
@@ -143,14 +146,22 @@ export default {
       }
     }
   }),
-  mounted() {
-    axios
+  async mounted() {
+    await axios
       .get(`http://35.197.110.104/product/${this.$route.params.productId}`)
       .then(response => {
         // console.log(response);
         this.originalProduct = response.data;
         // make a deepCopy of originalProduct
         this.product = _.cloneDeep(this.originalProduct);
+        this.valid = true
+      })
+      .catch(error => {
+        console.error(error);
+        this.valid = false;
+        this.fetchErrorMessage = 'Error fetching product data'
+        //   this.$router.push("/")
+        console.log(this);
       });
   },
   methods: {

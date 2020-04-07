@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-content>
-      <div class="headline mt-4 mb-4 font-weight-thin">
+      <div class="headline mt-4 font-weight-thin">
         <v-btn class="float-left ml-4" text absolute color="orange" href="/">
           <v-icon class="mr-2">mdi-home</v-icon> Home
         </v-btn>
@@ -11,8 +11,8 @@
 
         <v-divider class="mt-4"></v-divider>
       </div>
-      <router-view class="mb-8"></router-view>
-      <v-footer class="font-weight-medium">
+      <router-view class="mb-16"></router-view>
+      <v-footer fixed class="font-weight-medium">
         <v-col class="text-center" cols="12">
           {{ new Date().getFullYear() }} —
           <strong>Spring boot client demo</strong>
@@ -33,3 +33,9 @@ export default {
   })
 };
 </script>
+
+<style>
+.v-footer--fixed {
+  z-index: 5 !important;
+}
+</style>
